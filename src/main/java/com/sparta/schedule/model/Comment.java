@@ -1,7 +1,5 @@
 package com.sparta.schedule.model;
 
-import com.sparta.schedule.model.BaseEntity;
-import com.sparta.schedule.model.Schedule;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -27,5 +25,11 @@ public class Comment extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "schedule_id")
     private Schedule schedule;
+
+    public Comment(String comment, String username, Schedule schedule) {
+        this.comment = comment;
+        this.username = username;
+        this.schedule = schedule;
+    }
 
 }
